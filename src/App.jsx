@@ -18,10 +18,10 @@ const App = () => {
       lastName: Yup.string()
         .max(20, 'Must be 20 characters or less')
         .required(<p className=' text-red-600'>Please enter last name</p>),
-      email: Yup.string().email(<p className=' text-red-600'>Invalid email address</p>).required(<p className=' text-red-600'>Please Enter Email</p>),
+      email: Yup.string().email(<p className=' text-red-600'>Invalid email address</p>).required(<p className=' text-red-600'>Please Enter Email</p>).matches(/@gmail\.com$/, "Email must end with @gmail.com"),
       pass: Yup.string().min(7,"Must be more than 7 characters").required(<p className=' text-red-600'>Please enter  Password </p>).matches(
-        /rishiMe@199$/,
-        "Password must be start from r__M_9"
+        /rishiME@199$/,
+        "Password must be rishiME@199"
       ),
       cpass: Yup.string()
       .oneOf([Yup.ref("pass"), null],<p className=' text-red-600'>Passwords must match</p> )
